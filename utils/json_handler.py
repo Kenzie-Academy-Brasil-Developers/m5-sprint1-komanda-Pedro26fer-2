@@ -18,10 +18,10 @@ def read_json(databse_path):
 
 
 
-def write_json(new_plate: dict, database_path = 'menu.json'):
+def write_json(database_path, new_plate: dict):
 
     try:
-         with open('menu.json', "r", encoding="utf8") as menu:
+         with open(database_path, "r", encoding="utf8") as menu:
 
             file = json.load(menu)
 
@@ -35,7 +35,7 @@ def write_json(new_plate: dict, database_path = 'menu.json'):
                     json.dump(file_list, file_json, indent= 4) 
                 return file_list[-1] 
 
-            new_plate = {**new_plate, "id": len(file)+1}
+            new_plate = {"id": len(file)+1, **new_plate}
             file = [*file, new_plate]
 
             with open(database_path, "w", encoding="utf8") as file_json:
