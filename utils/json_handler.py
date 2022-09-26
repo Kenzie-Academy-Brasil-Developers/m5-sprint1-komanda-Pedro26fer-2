@@ -6,11 +6,13 @@ def read_json(databse_path):
 
     try:
         with open(databse_path, "r", encoding="utf8") as menu_json:
-            if not menu_json:
-                return list()
             return json.load(menu_json)
     except IOError:
         return list()
+
+    except json.JSONDecodeError:
+        return list()
+
 
     
 
@@ -19,7 +21,7 @@ def read_json(databse_path):
 def write_json(new_plate: dict, database_path = 'menu.json'):
 
     try:
-         with open(database_path, "r", encoding="utf8") as menu:
+         with open('menu.json', "r", encoding="utf8") as menu:
 
             file = json.load(menu)
 
