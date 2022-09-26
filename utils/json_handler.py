@@ -18,7 +18,7 @@ def read_json(databse_path):
 
 
 
-def write_json(new_plate: dict, database_path = 'menu.json'):
+def write_json(database_path, new_plate: dict):
 
     try:
          with open(database_path, "r", encoding="utf8") as menu:

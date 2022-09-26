@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # print(read_json('menu.json'))
 
     new_item = {"name": "CHURROS DO M5", "price": 5.0}
-    print(write_json(new_item, 'batata.json'))
+    print(write_json("menu.json", new_item))
 
     # print('*' * 150)
 
